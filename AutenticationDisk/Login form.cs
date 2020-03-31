@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using Hashing;
+
 
 namespace AutenticationDisk
 {
@@ -30,6 +32,7 @@ namespace AutenticationDisk
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
             string user1 = BoxName.Text;
             string pass1 = BoxPass.Text;
             string tempo1 = "C:\\App\\" + user1 + ".txt";
