@@ -65,9 +65,9 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(5, 38);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(133, 15);
+            this.label4.Size = new System.Drawing.Size(76, 15);
             this.label4.TabIndex = 3;
-            this.label4.Text = "NAME/EMAIL ADRESS";
+            this.label4.Text = "USERNAME";
             // 
             // BoxName
             // 

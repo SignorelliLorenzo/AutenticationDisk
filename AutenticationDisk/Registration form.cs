@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using MySql.Data.MySqlClient;
 
 namespace AutenticationDisk
 {
@@ -23,7 +24,8 @@ namespace AutenticationDisk
             string user1 = BoxUserR.Text;
             string pass1 = BoxPassR.Text;
             string pass2 = BoxPass2R.Text;
-            string email1 = BoxEmailR.Text;
+            string supersecretpass = "X6!GZ9Pz}N9&8oECRZCYqrM,XXM2+ZwcYgkHIW";
+            var conn = new MySqlConnection($"Server=85.10.205.173;port=3306;Uid=ad_pass;Pwd={supersecretpass};Database=passfolder1;Connection Timeout=30;old guids=true;");
 
             string tempo1 = "C:\\App\\" + user1 + ".txt";
             if (pass1 == pass2)
@@ -37,12 +39,13 @@ namespace AutenticationDisk
                 {
                     if (user1 != "" && pass != "")
                     {
+
                         File.WriteAllText(tempo1, pass1);
                         MessageBox.Show("Registrazione completata");
                         BoxUserR.Text = "";
                         BoxPassR.Text = "";
                         BoxPass2R.Text = "";
-                        BoxEmailR.Text = "";
+                        
                     }
                     else
                     {
@@ -67,6 +70,11 @@ namespace AutenticationDisk
             Form1 pagin = new Form1();
             pagin.Show();
             this.Hide();
+        }
+
+        private void BoxEmailR_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

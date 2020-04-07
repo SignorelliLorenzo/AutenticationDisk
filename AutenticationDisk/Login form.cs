@@ -32,7 +32,9 @@ namespace AutenticationDisk
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            Database pagin = new Database();
+            pagin.Show();
+            this.Hide();
             string user1 = BoxName.Text;
             string pass1 = BoxPass.Text;
             string tempo1 = "C:\\App\\" + user1 + ".txt";
