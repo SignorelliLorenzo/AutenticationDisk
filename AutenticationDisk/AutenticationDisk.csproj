@@ -83,6 +83,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Libreriacrud.cs" />
     <Compile Include="Web Scrapping.cs" />
     <Compile Include="Database.cs">
       <SubType>Form</SubType>
