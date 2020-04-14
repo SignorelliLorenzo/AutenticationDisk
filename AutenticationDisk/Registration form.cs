@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using MySql.Data.MySqlClient;
+using Hashing;
 
 namespace AutenticationDisk
 {
@@ -17,48 +19,89 @@ namespace AutenticationDisk
         {
             InitializeComponent();
         }
-        string pass;
+        
         private void button1_Click(object sender, EventArgs e)
         {
             string user1 = BoxUserR.Text;
             string pass1 = BoxPassR.Text;
             string pass2 = BoxPass2R.Text;
-            string email1 = BoxEmailR.Text;
-
-            string tempo1 = "C:\\App\\" + user1 + ".txt";
-            if (pass1 == pass2)
+            string supersecretpass = "X6!GZ9Pz}N9&8oECRZCYqrM,XXM2+ZwcYgkHIW";
+            try
             {
-                if (File.Exists(tempo1))
+                var conn = new MySqlConnection($"Server=85.10.205.173;port=3306;Uid=ad_pass;Pwd={supersecretpass};Database=passfolder1;Connection Timeout=30;old guids=true;");
+                conn.Open();
+                
+
+
+                string tempo1 = "C:\\App\\" + user1 + ".txt";
+                bool alreadyregistered = false;
+                if (pass1 == pass2)
                 {
-                    //Registrazione non valida
-                    MessageBox.Show("Non è possibile registrarsi con questo nome utente");
-                }
-                else
-                {
-                    if (user1 != "" && pass != "")
+                    var cmd = new MySqlCommand("select * from Tabelle", conn);
+                    MySqlDataReader dr = default;
+                    dr = cmd.ExecuteReader();
+                    while(dr.Read()==true)
                     {
-                        File.WriteAllText(tempo1, pass1);
-                        MessageBox.Show("Registrazione completata");
-                        BoxUserR.Text = "";
-                        BoxPassR.Text = "";
-                        BoxPass2R.Text = "";
-                        BoxEmailR.Text = "";
+                        if(user1==dr["Utente"]as string)
+                        {
+                            alreadyregistered = true;
+                        }
+                    }
+                    dr.Close();
+                    dr.Dispose();
+                    cmd.Dispose();
+                    if (alreadyregistered == true)
+                    {
+                        //Registrazione non valida
+                        MessageBox.Show("Non è possibile registrarsi con questo nome utente");
                     }
                     else
                     {
-                        MessageBox.Show("Non è possibile registrarsi");
+                        if (user1 != "" && pass1 != "" && pass2 != "")
+                        {
+                            string pass=Secure.GetHashString(pass1);
+                            var passfolder = new MySqlCommand("INSERT INTO Tabelle (Utente,Password) VALUES(@a,@b)", conn);
+                            
+                            passfolder.Parameters.AddWithValue("@a", user1);
+                            passfolder.Parameters.AddWithValue("@b", pass);
+                            int nr = passfolder.ExecuteNonQuery();
+                            passfolder.Dispose();
+                            if (nr == 0)
+                            {
+                                MessageBox.Show("Registrazione fallita");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Registrazione completata");
+                            }
+
+                            BoxUserR.Text = "";
+                            BoxPassR.Text = "";
+                            BoxPass2R.Text = "";
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("RIEMPIRE I CAMPI RICHIESTI");
+                        }
+
                     }
 
                 }
+                else
+                {
+                    MessageBox.Show("Le password non sono uguali");
+                    BoxPassR.Text = "";
+                    BoxPass2R.Text = "";
+                }
 
+                
+                conn.Close();
             }
-            else
+            catch
             {
-                MessageBox.Show("Nome utente o password sono errati");
-                BoxPassR.Text = "";
-                BoxPass2R.Text = "";
+                MessageBox.Show("Registrazione fallita");
             }
-           
 
         }
 
@@ -67,6 +110,16 @@ namespace AutenticationDisk
             Form1 pagin = new Form1();
             pagin.Show();
             this.Hide();
+        }
+
+        private void BoxEmailR_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
