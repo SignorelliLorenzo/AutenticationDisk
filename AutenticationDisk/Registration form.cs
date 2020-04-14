@@ -34,9 +34,20 @@ namespace AutenticationDisk
 
 
                 string tempo1 = "C:\\App\\" + user1 + ".txt";
+                bool alreadyregistered = false;
                 if (pass1 == pass2)
                 {
-                    if (File.Exists(tempo1))
+                    var cmd = new MySqlCommand("select * from customers", conn);
+                    MySqlDataReader dr = default;
+                    dr = cmd.ExecuteReader();
+                    while(dr.Read()==true)
+                    {
+                        if(user1==dr["Utente"]as string)
+                        {
+                            alreadyregistered = true;
+                        }
+                    }
+                    if (alreadyregistered == true)
                     {
                         //Registrazione non valida
                         MessageBox.Show("Non è possibile registrarsi con questo nome utente");
