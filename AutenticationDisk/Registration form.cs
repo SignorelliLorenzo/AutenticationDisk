@@ -37,7 +37,7 @@ namespace AutenticationDisk
                 bool alreadyregistered = false;
                 if (pass1 == pass2)
                 {
-                    var cmd = new MySqlCommand("select * from customers", conn);
+                    var cmd = new MySqlCommand("select * from Tabelle", conn);
                     MySqlDataReader dr = default;
                     dr = cmd.ExecuteReader();
                     while(dr.Read()==true)
@@ -47,6 +47,9 @@ namespace AutenticationDisk
                             alreadyregistered = true;
                         }
                     }
+                    dr.Close();
+                    dr.Dispose();
+                    cmd.Dispose();
                     if (alreadyregistered == true)
                     {
                         //Registrazione non valida
