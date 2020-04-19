@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static funz.funzioni;
 
 namespace AutenticationDisk
 {
@@ -17,9 +18,12 @@ namespace AutenticationDisk
             InitializeComponent();
         }
 
+        serie[] test = new serie[100];
+        int num = default(int);
+        
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
@@ -30,6 +34,30 @@ namespace AutenticationDisk
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Database_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            
+                
+               
+           
         }
     }
 }

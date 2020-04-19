@@ -12,7 +12,7 @@ namespace funz
     public class funzioni
     {
         public struct serie
-    {
+        {
         public string nome;
         public string trama;
         public int episodi;
@@ -55,7 +55,28 @@ namespace funz
                 x++;
             }
         }
-            public static void ordinad(serie[] elep, int n)
+        public static void ordinacep(serie[] elep, int n)
+        {
+            int x = 0;
+            int y = 0;
+            serie k = default(serie);
+            while (n > x)
+            {
+                y = x + 1;
+                while (n > y)
+                {
+                    if (elep[x].episodi > elep[y].episodi)
+                    {
+                        k = elep[x];
+                        elep[x] = elep[y];
+                        elep[y] = k;
+                    }
+                    y++;
+                }
+                x++;
+            }
+        }
+        public static void ordinad(serie[] elep, int n)
             {
                 int x = 0;
                 int y = 0;
@@ -76,6 +97,27 @@ namespace funz
                     x++;
                 }
             }
+        public static void ordinadep(serie[] elep, int n)
+        {
+            int x = 0;
+            int y = 0;
+            serie k = default(serie);
+            while (n > x)
+            {
+                y = x + 1;
+                while (n > y)
+                {
+                    if (elep[x].episodi < elep[y].episodi)
+                    {
+                        k = elep[x];
+                        elep[x] = elep[y];
+                        elep[y] = k;
+                    }
+                    y++;
+                }
+                x++;
+            }
+        }
         public static int elimina(serie[] elep, ref int n, string cod)
         {
             int x = default(int);
