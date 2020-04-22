@@ -11,10 +11,16 @@ namespace Web_Scrapping
     {
         public static string Immagine(string titolo)
         {
+            string indirizzo = default;
+            indirizzo = titolo.Trim();
+            indirizzo = indirizzo.Replace(" ", "_");
+            indirizzo = indirizzo.Replace("'", "%27");
+            indirizzo = indirizzo.Replace(":", "%3A");
+            indirizzo = $"https://it.wikipedia.org/wiki/{indirizzo}";
             string immagine = default;
             HtmlWeb web = new HtmlWeb();
             HtmlDocument doc;
-            doc = web.Load("https://it.wikipedia.org/wiki/Breaking_Bad#Episodi");
+            doc = web.Load(indirizzo);
 
             foreach (HtmlNode link in doc.DocumentNode.SelectNodes("//img[@src]"))
             {
@@ -38,10 +44,19 @@ namespace Web_Scrapping
 
         public static int Data(string titolo)
         {
-            int data = default;
+            string indirizzo = default;
+            indirizzo = titolo.Trim();
+            indirizzo = indirizzo.Replace(" ", "_");
+            indirizzo = indirizzo.Replace("'", "%27");
+            indirizzo = indirizzo.Replace(":", "%3A");
+            indirizzo = $"https://it.wikipedia.org/wiki/{indirizzo}";
+            
             HtmlWeb web = new HtmlWeb();
             HtmlDocument doc;
-            doc = web.Load("https://it.wikipedia.org/wiki/Breaking_Bad#Episodi");
+            doc = web.Load(indirizzo);
+
+            int data = default;
+           
 
             foreach (HtmlNode link in doc.DocumentNode.SelectNodes("//a[@title]"))
             {
@@ -72,5 +87,6 @@ namespace Web_Scrapping
             return data;
         }
     
+        
     }
 }
