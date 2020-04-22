@@ -48,7 +48,7 @@ namespace Web_Scrapping
                 HtmlAttribute att = link.Attributes["title"];
                 if (att.Value.Contains("#"))
                 {
-                    string[] substring = att.Value.Split("#");
+                    string[] substring = att.Value.Split('#');
 
 
 
