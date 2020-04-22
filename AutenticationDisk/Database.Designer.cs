@@ -145,7 +145,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.listView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Database";
+   
             this.Text = "Database";
             this.Load += new System.EventHandler(this.Database_Load);
             this.ResumeLayout(false);

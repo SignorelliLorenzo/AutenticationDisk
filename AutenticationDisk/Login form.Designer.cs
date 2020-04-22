@@ -80,6 +80,7 @@
             // 
             this.BoxPass.Location = new System.Drawing.Point(9, 97);
             this.BoxPass.Name = "BoxPass";
+            this.BoxPass.PasswordChar = '*';
             this.BoxPass.Size = new System.Drawing.Size(190, 20);
             this.BoxPass.TabIndex = 5;
             // 
