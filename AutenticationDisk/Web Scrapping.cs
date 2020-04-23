@@ -34,7 +34,7 @@ namespace Web_Scrapping
                 }
                 else
                 {
-
+                    immagine = att.Value;
                 }
                 break;
             }
