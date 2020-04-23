@@ -86,7 +86,37 @@ namespace Web_Scrapping
 
             return data;
         }
-    
-        
+
+        public static string Episodi(string titolo)
+        {
+            string episodi = default;
+
+            string indirizzo = default;
+            indirizzo = titolo.Trim();
+            indirizzo = indirizzo.Replace(" ", "_");
+            indirizzo = indirizzo.Replace("'", "%27");
+            indirizzo = indirizzo.Replace(":", "%3A");
+            indirizzo = $"https://it.wikipedia.org/wiki/{indirizzo}";
+            string immagine = default;
+            HtmlWeb web = new HtmlWeb();
+            HtmlDocument doc;
+            doc = web.Load(indirizzo);
+
+            var list = doc.DocumentNode.SelectSingleNode("//table[@class='sinottico']")
+             .Descendants("tr")
+             .Select(x => new
+             {
+                 Val1 = x.SelectSingleNode("td[@class='']")?.InnerText,
+
+             })
+             .Where(x => x.Val1 != null)
+             .ToList();
+
+            episodi = list[6].ToString();
+            episodi = episodi.Substring(9, 3);
+            episodi = episodi.Trim();
+
+            return episodi;
+        }
     }
 }
