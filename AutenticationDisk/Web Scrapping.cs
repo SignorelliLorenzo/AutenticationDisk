@@ -9,7 +9,7 @@ namespace Web_Scrapping
 {
     class Reserch
     {
-        public static string Immagine(string titolo)
+        public static string Immagine(string titolo,bool check)
         {
             string indirizzo = default;
             indirizzo = titolo.Trim();
@@ -21,28 +21,36 @@ namespace Web_Scrapping
             HtmlWeb web = new HtmlWeb();
             HtmlDocument doc;
             doc = web.Load(indirizzo);
-
-            foreach (HtmlNode link in doc.DocumentNode.SelectNodes("//img[@src]"))
+            try
             {
-                HtmlAttribute att = link.Attributes["src"];
-                if (att.Value.Contains("#"))
+                foreach (HtmlNode link in doc.DocumentNode.SelectNodes("//img[@src]"))
                 {
-                    string[] substring = att.Value.Split('#');
+                    HtmlAttribute att = link.Attributes["src"];
+                    if (att.Value.Contains("#"))
+                    {
+                        string[] substring = att.Value.Split('#');
 
-                    immagine = substring[0];
+                        immagine = substring[0];
 
+                    }
+                    else
+                    {
+                        immagine = att.Value;
+                    }
+                    break;
                 }
-                else
-                {
-                    immagine = att.Value;
-                }
-                break;
+                check = true;
+                return immagine;
             }
-
-            return immagine;
+            catch
+            {
+                check = false;
+                string problema = "Immagine non trovata,probabilmente il titolo inserito è sbagliato";
+                return problema;
+            }
         }
 
-        public static int Data(string titolo)
+        public static int Data(string titolo,bool check)
         {
             string indirizzo = default;
             indirizzo = titolo.Trim();
@@ -56,38 +64,46 @@ namespace Web_Scrapping
             doc = web.Load(indirizzo);
 
             int data = default;
-           
 
-            foreach (HtmlNode link in doc.DocumentNode.SelectNodes("//a[@title]"))
+            try
             {
-                HtmlAttribute att = link.Attributes["title"];
-                if (att.Value.Contains("#"))
+                foreach (HtmlNode link in doc.DocumentNode.SelectNodes("//a[@title]"))
                 {
-                    string[] substring = att.Value.Split('#');
-
-
-
-                }
-                else
-                {
-
-                    try
+                    HtmlAttribute att = link.Attributes["title"];
+                    if (att.Value.Contains("#"))
                     {
-                        data = int.Parse(att.Value);
-                        break;
-                    }
-                    catch
-                    {
+                        string[] substring = att.Value.Split('#');
+
+
 
                     }
-                }
+                    else
+                    {
 
+                        try
+                        {
+                            data = int.Parse(att.Value);
+                            break;
+                        }
+                        catch
+                        {
+
+                        }
+                    }
+
+                }
+                check = true;
+                return data;
             }
-
-            return data;
+            catch
+            {
+                check = false;
+                int x = -1;
+                return x;
+            }
         }
 
-        public static string Episodi(string titolo)
+        public static string Episodi(string titolo,bool check)
         {
             string episodi = default;
 
@@ -97,26 +113,37 @@ namespace Web_Scrapping
             indirizzo = indirizzo.Replace("'", "%27");
             indirizzo = indirizzo.Replace(":", "%3A");
             indirizzo = $"https://it.wikipedia.org/wiki/{indirizzo}";
-            string immagine = default;
+            
             HtmlWeb web = new HtmlWeb();
             HtmlDocument doc;
             doc = web.Load(indirizzo);
 
-            var list = doc.DocumentNode.SelectSingleNode("//table[@class='sinottico']")
-             .Descendants("tr")
-             .Select(x => new
-             {
-                 Val1 = x.SelectSingleNode("td[@class='']")?.InnerText,
+            try
+            {
+                var list = doc.DocumentNode.SelectSingleNode("//table[@class='sinottico']")
+                 .Descendants("tr")
+                 .Select(x => new
+                 {
+                     Val1 = x.SelectSingleNode("td[@class='']")?.InnerText,
 
-             })
-             .Where(x => x.Val1 != null)
-             .ToList();
+                 })
+                 .Where(x => x.Val1 != null)
+                 .ToList();
 
-            episodi = list[6].ToString();
-            episodi = episodi.Substring(9, 3);
-            episodi = episodi.Trim();
+                episodi = list[6].ToString();
+                episodi = episodi.Substring(9, 3);
+                episodi = episodi.Trim();
 
-            return episodi;
+                check = true;
+                return episodi;
+            }
+            catch
+            {
+                check = false;
+                string problema = "N episodi non trovati,probabilmente il titolo inserito è sbagliato";
+                return problema;
+            }
         }
+    
     }
 }
