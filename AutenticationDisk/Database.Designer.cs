@@ -107,6 +107,7 @@
             this.button2.TabIndex = 6;
             this.button2.Text = "Elimina Serie";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // comboBox1
             // 
@@ -162,7 +163,7 @@
             this.Controls.Add(this.listView1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-
+            this.Name.Name = "scheda_database";
             this.Text = "Database";
             this.Load += new System.EventHandler(this.Database_Load);
             this.ResumeLayout(false);
