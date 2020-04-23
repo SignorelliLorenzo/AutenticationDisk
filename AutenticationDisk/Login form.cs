@@ -77,7 +77,7 @@ namespace AutenticationDisk
                     if (Secure.GetHashString(pass1).Equals(pass))
                     {
                         MessageBox.Show("Login Eseguito");
-                        Database pagin = new Database();
+                        scheda_database pagin = new scheda_database();
                         pagin.Show();
                         this.Hide();
                     }

@@ -11,9 +11,9 @@ using static funz.funzioni;
 
 namespace AutenticationDisk
 {
-    public partial class Database : Form
+    public partial class scheda_database : Form
     {
-        public Database()
+        public scheda_database()
         {
             InitializeComponent();
         }
