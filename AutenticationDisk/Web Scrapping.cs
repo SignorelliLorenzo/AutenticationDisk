@@ -143,7 +143,43 @@ namespace Web_Scrapping
                 string problema = "N episodi non trovati,probabilmente il titolo inserito è sbagliato";
                 return problema;
             }
+         }
+            
+            public static string Trama(string titolo)
+        {
+
+            string indirizzo = default;
+            indirizzo = titolo.Trim();
+            indirizzo = indirizzo.Replace(" ", "-");
+            indirizzo = indirizzo.ToLower();
+            
+            indirizzo = $"https://www.nientepopcorn.it/serie-tv/{indirizzo}";
+            string trama = default;
+            HtmlWeb web = new HtmlWeb();
+            HtmlDocument doc;
+            doc = web.Load(indirizzo);
+
+            var list = doc.DocumentNode.SelectSingleNode("//p[@class='trama']").InnerText;
+
+
+            trama = list;
+            trama = trama.Trim();
+            trama = trama.ToLower();
+            int lung = trama.Length;
+            var autore = doc.DocumentNode.SelectSingleNode("//a[@title='Autore trama']").InnerText;
+            autore = autore.Trim();
+            int lung2 = autore.Length;
+            
+            trama =  trama.Remove(lung-24-lung2,24+lung2);
+            return trama;
+
+
+
+        }
+
+
+
         }
     
     }
-}
+
