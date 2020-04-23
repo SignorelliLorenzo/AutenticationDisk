@@ -14,8 +14,10 @@ using MySql.Data.MySqlClient;
 
 namespace AutenticationDisk
 {
+    
     public partial class Form1 : Form
     {
+      
         public Form1()
         {
             InitializeComponent(); 
@@ -77,6 +79,11 @@ namespace AutenticationDisk
                     if (Secure.GetHashString(pass1).Equals(pass))
                     {
                         MessageBox.Show("Login Eseguito");
+                        if (!File.Exists(@"User\" + user1))
+                        {
+                            Directory.CreateDirectory(@"User\" + user1);
+                            
+                        }
                         scheda_database pagin = new scheda_database();
                         pagin.Show();
                         this.Hide();
