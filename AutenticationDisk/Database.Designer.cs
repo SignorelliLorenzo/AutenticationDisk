@@ -28,74 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Trama = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Episodi = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Episodi_visti = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Uscita = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Immagine = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button2 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.Serie = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
-            // 
-            // listView1
-            // 
-            this.listView1.BackColor = System.Drawing.Color.White;
-            this.listView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Name,
-            this.Trama,
-            this.Episodi,
-            this.Episodi_visti,
-            this.Uscita,
-            this.Immagine});
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(239, -3);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(580, 411);
-            this.listView1.TabIndex = 2;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
-            // 
-            // Name
-            // 
-            this.Name.DisplayIndex = 1;
-            this.Name.Text = "Nome";
-            this.Name.Width = 101;
-            // 
-            // Trama
-            // 
-            this.Trama.DisplayIndex = 2;
-            this.Trama.Text = "Trama";
-            this.Trama.Width = 102;
-            // 
-            // Episodi
-            // 
-            this.Episodi.DisplayIndex = 3;
-            this.Episodi.Text = "Episodi";
-            this.Episodi.Width = 89;
-            // 
-            // Episodi_visti
-            // 
-            this.Episodi_visti.DisplayIndex = 4;
-            this.Episodi_visti.Text = "Episodi_visti";
-            this.Episodi_visti.Width = 107;
-            // 
-            // Uscita
-            // 
-            this.Uscita.DisplayIndex = 5;
-            this.Uscita.Text = "Uscita";
-            this.Uscita.Width = 85;
-            // 
-            // Immagine
-            // 
-            this.Immagine.DisplayIndex = 0;
-            this.Immagine.Text = "";
-            this.Immagine.Width = 90;
             // 
             // button2
             // 
@@ -148,6 +91,54 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // listView1
+            // 
+            this.listView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.listView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Serie,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader1});
+            this.listView1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.listView1.Font = new System.Drawing.Font("Monotype Corsiva", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(227, 22);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(575, 384);
+            this.listView1.TabIndex = 17;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listView1_ColumnClick);
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged_1);
+            // 
+            // Serie
+            // 
+            this.Serie.Text = "Serie";
+            this.Serie.Width = 88;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Data di uscita";
+            this.columnHeader2.Width = 112;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Episodi";
+            this.columnHeader3.Width = 116;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Progresso";
+            this.columnHeader4.Width = 148;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Stato";
+            this.columnHeader1.Width = 276;
+            // 
             // scheda_database
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -156,14 +147,14 @@
             this.BackgroundImage = global::AutenticationDisk.Properties.Resources.Gli_architetti_Conti_e_Monti_Lobiettivo_di_questanno_A_cosa_stiamo_lavorando_I_nostri_servizi_Le_nos;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(804, 407);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.listView1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name.Name = "scheda_database";
+            this.Name = "scheda_database";
             this.Text = "Database";
             this.Load += new System.EventHandler(this.Database_Load);
             this.ResumeLayout(false);
@@ -171,16 +162,15 @@
         }
 
         #endregion
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader Name;
-        private System.Windows.Forms.ColumnHeader Trama;
-        private System.Windows.Forms.ColumnHeader Episodi;
-        private System.Windows.Forms.ColumnHeader Episodi_visti;
-        private System.Windows.Forms.ColumnHeader Uscita;
-        private System.Windows.Forms.ColumnHeader Immagine;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader Serie;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
     }
 }

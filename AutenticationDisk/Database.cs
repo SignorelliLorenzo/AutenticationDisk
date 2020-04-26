@@ -69,5 +69,15 @@ namespace AutenticationDisk
         {
 
         }
+
+        private void listView1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void listView1_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            int k = e.Column;
+        }
     }
 }
