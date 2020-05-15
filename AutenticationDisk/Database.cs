@@ -11,9 +11,9 @@ using static funz.funzioni;
 
 namespace AutenticationDisk
 {
-    public partial class Database : Form
+    public partial class scheda_database : Form
     {
-        public Database()
+        public scheda_database()
         {
             InitializeComponent();
         }
@@ -23,7 +23,7 @@ namespace AutenticationDisk
         
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+           
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
@@ -58,6 +58,26 @@ namespace AutenticationDisk
                 
                
            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listView1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void listView1_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            int k = e.Column;
         }
     }
 }
