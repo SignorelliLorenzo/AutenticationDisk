@@ -96,7 +96,7 @@ namespace AutenticationDisk
             listView1.Items.Clear();
             while (x < num)
             {
-                var row = new string[] { test[x].nome, test[x].uscita.ToString(), test[x].episodi.ToString(), test[x].epvisti.ToString(), test[x].immage };
+                var row = new string[] { test[x].nome, test[x].uscita.ToString(), test[x].episodi.ToString(), test[x].epvisti.ToString(), test[x].trama, test[x].immage};
                 var listrow = new ListViewItem(row);
                 listView1.Items.Add(listrow);
                 x = x + 1;
@@ -117,7 +117,7 @@ namespace AutenticationDisk
             string path = default(string);
             textBox1.Visible = true;
             path = textBox1.Text;
-           
+            
             if (textBox1.Text!="")
             {
                 if (!File.Exists(path))

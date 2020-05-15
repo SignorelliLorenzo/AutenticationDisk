@@ -36,7 +36,6 @@
             this.Serie = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button4 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -45,10 +44,6 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.listView2 = new System.Windows.Forms.ListView();
-            this.button6 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.moduscita = new System.Windows.Forms.TextBox();
             this.modepv = new System.Windows.Forms.TextBox();
             this.modep = new System.Windows.Forms.TextBox();
@@ -58,11 +53,16 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.button6 = new System.Windows.Forms.Button();
+            this.listView2 = new System.Windows.Forms.ListView();
             this.Nome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Episodi = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Episodi_Visti = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -128,15 +128,16 @@
             this.Serie,
             this.columnHeader2,
             this.columnHeader3,
+            this.columnHeader1,
             this.columnHeader4,
-            this.columnHeader1});
+            this.columnHeader5});
             this.listView1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(6, 6);
+            this.listView1.Location = new System.Drawing.Point(6, 1);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(563, 275);
+            this.listView1.Size = new System.Drawing.Size(582, 275);
             this.listView1.TabIndex = 17;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -157,11 +158,6 @@
             // 
             this.columnHeader3.Text = "Episodi";
             this.columnHeader3.Width = 113;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Progresso";
-            this.columnHeader4.Width = 0;
             // 
             // columnHeader1
             // 
@@ -251,83 +247,39 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "MODIFICA";
             // 
-            // listView2
-            // 
-            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Nome,
-            this.Episodi,
-            this.Episodi_Visti,
-            this.columnHeader8,
-            this.columnHeader9});
-            this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(16, 75);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(332, 184);
-            this.listView2.TabIndex = 0;
-            this.listView2.UseCompatibleStateImageBehavior = false;
-            this.listView2.View = System.Windows.Forms.View.Details;
-            this.listView2.SelectedIndexChanged += new System.EventHandler(this.listView2_SelectedIndexChanged);
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(141, 42);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(124, 25);
-            this.button6.TabIndex = 1;
-            this.button6.Text = "CERCA";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(16, 47);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(119, 20);
-            this.textBox3.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(13, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(111, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "NOME DELLA SERIE";
-            // 
             // moduscita
             // 
-            this.moduscita.Location = new System.Drawing.Point(468, 156);
+            this.moduscita.Location = new System.Drawing.Point(455, 160);
             this.moduscita.Name = "moduscita";
-            this.moduscita.Size = new System.Drawing.Size(75, 20);
+            this.moduscita.Size = new System.Drawing.Size(113, 20);
             this.moduscita.TabIndex = 62;
             // 
             // modepv
             // 
-            this.modepv.Location = new System.Drawing.Point(468, 128);
+            this.modepv.Location = new System.Drawing.Point(455, 132);
             this.modepv.Name = "modepv";
-            this.modepv.Size = new System.Drawing.Size(75, 20);
+            this.modepv.Size = new System.Drawing.Size(113, 20);
             this.modepv.TabIndex = 61;
             // 
             // modep
             // 
-            this.modep.Location = new System.Drawing.Point(468, 101);
+            this.modep.Location = new System.Drawing.Point(455, 105);
             this.modep.Name = "modep";
-            this.modep.Size = new System.Drawing.Size(75, 20);
+            this.modep.Size = new System.Drawing.Size(113, 20);
             this.modep.TabIndex = 57;
             // 
             // modnome
             // 
-            this.modnome.Location = new System.Drawing.Point(468, 75);
+            this.modnome.Location = new System.Drawing.Point(455, 79);
             this.modnome.Name = "modnome";
-            this.modnome.Size = new System.Drawing.Size(75, 20);
+            this.modnome.Size = new System.Drawing.Size(113, 20);
             this.modnome.TabIndex = 55;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(399, 161);
+            this.label12.Location = new System.Drawing.Point(386, 165);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(37, 13);
             this.label12.TabIndex = 59;
@@ -337,7 +289,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(399, 135);
+            this.label13.Location = new System.Drawing.Point(386, 139);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(63, 13);
             this.label13.TabIndex = 58;
@@ -348,7 +300,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(399, 104);
+            this.label14.Location = new System.Drawing.Point(386, 108);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(41, 13);
             this.label14.TabIndex = 54;
@@ -358,7 +310,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(399, 75);
+            this.label16.Location = new System.Drawing.Point(386, 79);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(35, 13);
             this.label16.TabIndex = 52;
@@ -371,11 +323,54 @@
             this.button9.BackColor = System.Drawing.Color.Transparent;
             this.button9.Location = new System.Drawing.Point(363, 217);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(221, 42);
+            this.button9.Size = new System.Drawing.Size(205, 42);
             this.button9.TabIndex = 51;
             this.button9.Text = "Modifica";
             this.button9.UseVisualStyleBackColor = false;
             this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(13, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(111, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "NOME DELLA SERIE";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(16, 47);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(119, 20);
+            this.textBox3.TabIndex = 2;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(141, 47);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(124, 20);
+            this.button6.TabIndex = 1;
+            this.button6.Text = "CERCA";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // listView2
+            // 
+            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Nome,
+            this.Episodi,
+            this.Episodi_Visti,
+            this.columnHeader8});
+            this.listView2.HideSelection = false;
+            this.listView2.Location = new System.Drawing.Point(16, 75);
+            this.listView2.Name = "listView2";
+            this.listView2.Size = new System.Drawing.Size(332, 184);
+            this.listView2.TabIndex = 0;
+            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.listView2.View = System.Windows.Forms.View.Details;
+            this.listView2.SelectedIndexChanged += new System.EventHandler(this.listView2_SelectedIndexChanged);
             // 
             // Nome
             // 
@@ -394,12 +389,17 @@
             // columnHeader8
             // 
             this.columnHeader8.Text = "Uscita";
-            this.columnHeader8.Width = 53;
+            this.columnHeader8.Width = 113;
             // 
-            // columnHeader9
+            // columnHeader4
             // 
-            this.columnHeader9.Text = "Immagine";
-            this.columnHeader9.Width = 61;
+            this.columnHeader4.Text = "Trama";
+            this.columnHeader4.Width = 115;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Immagine";
+            this.columnHeader5.Width = 87;
             // 
             // scheda_database
             // 
@@ -441,7 +441,6 @@
         private System.Windows.Forms.ColumnHeader Serie;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TextBox textBox1;
@@ -467,6 +466,7 @@
         private System.Windows.Forms.ColumnHeader Episodi;
         private System.Windows.Forms.ColumnHeader Episodi_Visti;
         private System.Windows.Forms.ColumnHeader columnHeader8;
-        private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
     }
 }
