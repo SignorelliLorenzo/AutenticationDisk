@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static funz.funzioni;
+using Web_Scrapping;
 
 namespace AutenticationDisk
 {
@@ -21,10 +22,10 @@ namespace AutenticationDisk
 
         serie[] test = new serie[100];
         int num = default(int);
-        
+
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
@@ -54,11 +55,11 @@ namespace AutenticationDisk
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-            
-                
-               
-           
+
+
+
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -71,18 +72,19 @@ namespace AutenticationDisk
             textBox1.Visible = true;
             int x = default(int);
             string cod = default(string);
+
             cod = textBox1.Text;
             x = funz.funzioni.elimina(test, ref num, cod);
-            if(x>0)
+            if (x > 0)
             {
-                MessageBox.Show("Hai eliminato " + x + " serie");                           
+                MessageBox.Show("Hai eliminato " + x + " serie");
             }
-                textBox1.Visible = false;
+            textBox1.Visible = false;
         }
 
         private void listView1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            
+
         }
 
         private void listView1_ColumnClick(object sender, ColumnClickEventArgs e)
@@ -96,13 +98,13 @@ namespace AutenticationDisk
             listView1.Items.Clear();
             while (x < num)
             {
-                var row = new string[] { test[x].nome, test[x].uscita.ToString(), test[x].episodi.ToString(), test[x].epvisti.ToString(), test[x].trama, test[x].immage};
+                var row = new string[] { test[x].nome, test[x].uscita.ToString(), test[x].episodi.ToString(), test[x].epvisti.ToString(), test[x].trama, test[x].immage };
                 var listrow = new ListViewItem(row);
                 listView1.Items.Add(listrow);
                 x = x + 1;
             }
             if (comboBox1.Text == "Ordina per nome (crescente)")
-                funz.funzioni.ordinac(test,num );
+                funz.funzioni.ordinac(test, num);
             if (comboBox1.Text == "Ordina per nome (decrescente)")
                 funz.funzioni.ordinad(test, num);
             if (comboBox1.Text == "Ordina per episodi (crescente)")
@@ -114,38 +116,46 @@ namespace AutenticationDisk
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string path = default(string);
-            textBox1.Visible = true;
-            path = textBox1.Text;
-            
-            if (textBox1.Text!="")
-            {
-                if (!File.Exists(path))
-                {
-                    funz.funzioni.salva(test, num, path);
-                    MessageBox.Show("Hai salvato la serie");
-                }
-                else
-                {
-                    MessageBox.Show("Il file è già esistente");
-                }
-            }
-            
-            textBox1.Visible = false;
+            string path = Form1.currentuser + @"\" + DateTime.Now.ToString();
+        
+
+
+            funz.funzioni.salva(test, num, path);
+            MessageBox.Show("Hai salvato le modifiche");
+
+
+
+
+          
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            int k = default(int); 
+            int k = default(int);
             string ns = default(string);
             ns = textBox2.Text;
-            if(textBox2.Text == "")
-            k = funz.funzioni.Cerca(test, num, ns);
+            bool check = true;
+            serie z = default(serie);
+            z.nome = ns;
+
+            z.uscita = Reserch.Data(ns, check);
+            if (z.uscita == -1)
+            {
+                MessageBox.Show("Errore Serie non trovata probabilmente il nome inserito è scorretto");
+            }
+            check = int.TryParse(Reserch.Episodi(ns, check), out z.uscita);
+            if (!check)
+            {
+                MessageBox.Show("Errore Serie non trovata probabilmente il nome inserito è scorretto");
+            }
+            z.immage = Reserch.Immagine(ns, check);
+            if (textBox2.Text == "")
+                k = funz.funzioni.Cerca(test, num, ns);
 
             var row = new string[] { test[k].nome, test[k].uscita.ToString(), test[k].episodi.ToString(), test[k].epvisti.ToString(), test[k].immage };
             var listrow = new ListViewItem(row);
             listView1.Items.Add(listrow);
-            
+
         }
 
         private void btncerca_Click(object sender, EventArgs e)
@@ -180,9 +190,9 @@ namespace AutenticationDisk
             modnome.Text = test[pos].nome;
             modep.Text = test[pos].episodi.ToString();
             modep.Text = test[pos].epvisti.ToString();
-            modepv.Text = test[pos].uscita.ToString();           
-            
-            
+            modepv.Text = test[pos].uscita.ToString();
+
+
 
             return;
         }
@@ -205,13 +215,13 @@ namespace AutenticationDisk
             modep.Text = test[pos].episodi.ToString();
             modepv.Text = test[pos].epvisti.ToString();
             moduscita.Text = test[pos].uscita.ToString();
-            
+
 
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-            
+
         }
     }
 }

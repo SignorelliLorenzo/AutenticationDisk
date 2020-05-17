@@ -17,7 +17,7 @@ namespace funz
         public string trama;
         public int episodi;
         public int epvisti;
-        public DateTime uscita;
+        public int uscita;
         public string immage;
 
         }
@@ -173,7 +173,7 @@ namespace funz
                 k.trama = miofile.ReadLine();
                 k.episodi = int.Parse(miofile.ReadLine());
                 k.epvisti = int.Parse(miofile.ReadLine());
-                k.uscita = DateTime.Parse(miofile.ReadLine());
+                k.uscita = int.Parse(miofile.ReadLine());
                 k.immage = miofile.ReadLine();
 
                 el[n] = k;

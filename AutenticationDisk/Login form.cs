@@ -17,7 +17,7 @@ namespace AutenticationDisk
     
     public partial class Form1 : Form
     {
-      
+        public static string currentuser = default(string);
         public Form1()
         {
             InitializeComponent(); 
@@ -85,6 +85,7 @@ namespace AutenticationDisk
                             
                         }
                         scheda_database pagin = new scheda_database();
+                        currentuser = user1;
                         pagin.Show();
                         this.Hide();
                     }

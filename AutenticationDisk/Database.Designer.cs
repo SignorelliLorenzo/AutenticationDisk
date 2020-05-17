@@ -37,8 +37,8 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button4 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -61,10 +61,7 @@
             this.Episodi = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Episodi_Visti = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -98,11 +95,11 @@
             // 
             this.button3.BackColor = System.Drawing.Color.Silver;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(25, 299);
+            this.button3.Location = new System.Drawing.Point(431, 376);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(180, 51);
+            this.button3.Size = new System.Drawing.Size(164, 27);
             this.button3.TabIndex = 15;
-            this.button3.Text = "Salva Serie";
+            this.button3.Text = "Salva";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -129,15 +126,14 @@
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader1,
-            this.columnHeader4,
-            this.columnHeader5});
+            this.columnHeader4});
             this.listView1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(6, 1);
+            this.listView1.Location = new System.Drawing.Point(232, 7);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(582, 275);
+            this.listView1.Size = new System.Drawing.Size(596, 285);
             this.listView1.TabIndex = 17;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -161,13 +157,18 @@
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "Stato";
+            this.columnHeader1.Text = "Visti";
             this.columnHeader1.Width = 96;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Stato";
+            this.columnHeader4.Width = 115;
             // 
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(472, 357);
+            this.button4.Location = new System.Drawing.Point(431, 326);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(155, 44);
             this.button4.TabIndex = 18;
@@ -175,18 +176,9 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(28, 375);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(177, 20);
-            this.textBox1.TabIndex = 19;
-            this.textBox1.Visible = false;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(643, 331);
+            this.textBox2.Location = new System.Drawing.Point(25, 371);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(171, 20);
             this.textBox2.TabIndex = 20;
@@ -194,9 +186,9 @@
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(633, 357);
+            this.button5.Location = new System.Drawing.Point(25, 298);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(195, 44);
+            this.button5.Size = new System.Drawing.Size(180, 54);
             this.button5.TabIndex = 21;
             this.button5.Text = "Aggiungi Serie";
             this.button5.UseVisualStyleBackColor = true;
@@ -206,19 +198,18 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(226, 12);
+            this.tabControl1.Location = new System.Drawing.Point(211, 357);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(602, 302);
+            this.tabControl1.Size = new System.Drawing.Size(214, 50);
             this.tabControl1.TabIndex = 22;
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.listView1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(594, 276);
+            this.tabPage1.Size = new System.Drawing.Size(206, 24);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "HOME";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -391,16 +382,6 @@
             this.columnHeader8.Text = "Uscita";
             this.columnHeader8.Width = 113;
             // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Trama";
-            this.columnHeader4.Width = 115;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Immagine";
-            this.columnHeader5.Width = 87;
-            // 
             // scheda_database
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -409,10 +390,10 @@
             this.BackgroundImage = global::AutenticationDisk.Properties.Resources.Gli_architetti_Conti_e_Monti_Lobiettivo_di_questanno_A_cosa_stiamo_lavorando_I_nostri_servizi_Le_nos;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(840, 407);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button3);
@@ -424,7 +405,6 @@
             this.Text = "Database";
             this.Load += new System.EventHandler(this.Database_Load);
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
@@ -443,7 +423,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TabControl tabControl1;
@@ -467,6 +446,5 @@
         private System.Windows.Forms.ColumnHeader Episodi_Visti;
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
     }
 }
