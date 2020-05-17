@@ -156,25 +156,34 @@ namespace AutenticationDisk
             if (z.uscita == -1)
             {
                 MessageBox.Show("Errore Serie non trovata probabilmente il nome inserito è scorretto");
+                return;
             }
             check = int.TryParse(Reserch.Episodi(ns, check), out z.uscita);
             if (!check)
             {
                 MessageBox.Show("Errore Serie non trovata probabilmente il nome inserito è scorretto");
+                return;
             }
 
             z.immage = Reserch.Immagine(ns, check);
             if(z.immage== "Immagine non trovata,probabilmente il titolo inserito è sbagliato")
             {
                 MessageBox.Show("Errore Serie non trovata probabilmente il nome inserito è scorretto");
+                return;
             }
-            z.immage = Reserch.Trama(ns);
-            if (z.immage == "Immagine non trovata,probabilmente il titolo inserito è sbagliato")
+            try
+            {
+                z.immage = Reserch.Trama(ns);
+                
+            }
+            catch
             {
                 MessageBox.Show("Errore Serie non trovata probabilmente il nome inserito è scorretto");
+                return;
             }
-            if (textBox2.Text == "")
-                k = funz.funzioni.Cerca(test, num, ns);
+            test[num] = z;
+            num++;
+
 
             var row = new string[] { test[k].nome, test[k].uscita.ToString(), test[k].episodi.ToString(), test[k].epvisti.ToString()};
             var listrow = new ListViewItem(row);
