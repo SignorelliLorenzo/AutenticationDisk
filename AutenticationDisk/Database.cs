@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static funz.funzioni;
+using funz;
 using Web_Scrapping;
 
 namespace AutenticationDisk
@@ -20,9 +20,9 @@ namespace AutenticationDisk
             InitializeComponent();
         }
 
-        serie[] test = new serie[100];
+        public static serie[] test = new serie[100];
         int num = default(int);
-
+        public static int variable = default(int);
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -84,12 +84,22 @@ namespace AutenticationDisk
 
         private void listView1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
+            int k = default;
+            k=listView1.SelectedIndices.Count;
+            if(k!=0)
+            {
+                label2.Visible = true;
+                add.Visible = true;
+                decrease.Visible = true;
+                button6.Visible = true;
+                variable= funzioni.Cerca(test, num, listView1.SelectedItems[0].SubItems[0].Text);
+            }
 
         }
 
         private void listView1_ColumnClick(object sender, ColumnClickEventArgs e)
         {
-            int k = e.Column;
+            //int k = e.Column;
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -131,6 +141,10 @@ namespace AutenticationDisk
 
         private void button5_Click(object sender, EventArgs e)
         {
+            if(textBox2.Text=="")
+            {
+                return;
+            }
             int k = default(int);
             string ns = default(string);
             ns = textBox2.Text;
@@ -148,11 +162,21 @@ namespace AutenticationDisk
             {
                 MessageBox.Show("Errore Serie non trovata probabilmente il nome inserito è scorretto");
             }
+
             z.immage = Reserch.Immagine(ns, check);
+            if(z.immage== "Immagine non trovata,probabilmente il titolo inserito è sbagliato")
+            {
+                MessageBox.Show("Errore Serie non trovata probabilmente il nome inserito è scorretto");
+            }
+            z.immage = Reserch.Trama(ns);
+            if (z.immage == "Immagine non trovata,probabilmente il titolo inserito è sbagliato")
+            {
+                MessageBox.Show("Errore Serie non trovata probabilmente il nome inserito è scorretto");
+            }
             if (textBox2.Text == "")
                 k = funz.funzioni.Cerca(test, num, ns);
 
-            var row = new string[] { test[k].nome, test[k].uscita.ToString(), test[k].episodi.ToString(), test[k].epvisti.ToString(), test[k].immage };
+            var row = new string[] { test[k].nome, test[k].uscita.ToString(), test[k].episodi.ToString(), test[k].epvisti.ToString()};
             var listrow = new ListViewItem(row);
             listView1.Items.Add(listrow);
 
@@ -175,46 +199,46 @@ namespace AutenticationDisk
 
         private void button6_Click(object sender, EventArgs e)
         {
-            int pos = default(int);
+            //int pos = default(int);
 
-            if (String.IsNullOrEmpty(textBox3.Text))
-                //return;
+            //if (String.IsNullOrEmpty(textBox3.Text))
+            //    return;
 
-                pos = funz.funzioni.Cerca(test, num, textBox3.Text);
-            if (pos < 0)
-            {
-                MessageBox.Show("Prodotto non trovato.");
-                return;
-            }
+            //pos = funz.funzioni.Cerca(test, num, textBox3.Text);
+            //if (pos < 0)
+            //{
+            //    MessageBox.Show("Prodotto non trovato.");
+            //    return;
+            //}
 
-            modnome.Text = test[pos].nome;
-            modep.Text = test[pos].episodi.ToString();
-            modep.Text = test[pos].epvisti.ToString();
-            modepv.Text = test[pos].uscita.ToString();
+            //modnome.Text = test[pos].nome;
+            //modep.Text = test[pos].episodi.ToString();
+            //modep.Text = test[pos].epvisti.ToString();
+            //modepv.Text = test[pos].uscita.ToString();
 
 
 
-            return;
+            //return;
         }
 
         private void listView2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int pos = default(int);
-            string codicecercato = default(string);
-            codicecercato = listView2.SelectedItems[0].SubItems[0].Text;
+            //int pos = default(int);
+            //string codicecercato = default(string);
+            //codicecercato = listView2.SelectedItems[0].SubItems[0].Text;
 
-            pos = funz.funzioni.Cerca(test, num, codicecercato);
+            //pos = funz.funzioni.Cerca(test, num, codicecercato);
 
-            if (pos < 0)
-            {
-                MessageBox.Show("Serie non trovata");
-                return;
-            }
+            //if (pos < 0)
+            //{
+            //    MessageBox.Show("Serie non trovata");
+            //    return;
+            //}
 
-            modnome.Text = test[pos].nome;
-            modep.Text = test[pos].episodi.ToString();
-            modepv.Text = test[pos].epvisti.ToString();
-            moduscita.Text = test[pos].uscita.ToString();
+            //modnome.Text = test[pos].nome;
+            //modep.Text = test[pos].episodi.ToString();
+            //modepv.Text = test[pos].epvisti.ToString();
+            //moduscita.Text = test[pos].uscita.ToString();
 
 
         }
@@ -222,6 +246,33 @@ namespace AutenticationDisk
         private void button9_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button6_Click_1(object sender, EventArgs e)
+        {
+            INFO inf = new INFO();
+            inf.Show();
+            this.Hide();
+        }
+
+        private void add_Click(object sender, EventArgs e)
+        {
+            if(test[variable].epvisti== test[variable].episodi)
+            {
+                MessageBox.Show("Limite raggiunto");
+                return;
+            }
+            test[variable].epvisti = test[variable].epvisti + 1;
+        }
+
+        private void decrease_Click(object sender, EventArgs e)
+        {
+            if (test[variable].epvisti == 0)
+            {
+                MessageBox.Show("Non puoi diminuire gli episodi visti");
+                return;
+            }
+            test[variable].epvisti = test[variable].epvisti - 1;
         }
     }
 }

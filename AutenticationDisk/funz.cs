@@ -8,11 +8,8 @@ using System.Threading.Tasks;
 
 namespace funz
 {
-    
-    public class funzioni
+    public struct serie
     {
-        public struct serie
-        {
         public string nome;
         public string trama;
         public int episodi;
@@ -20,7 +17,10 @@ namespace funz
         public int uscita;
         public string immage;
 
-        }
+    }
+    public class funzioni
+    {
+       
         public static int Cerca(serie[] el, int n, string cod)
         {
             int x = default(int);
