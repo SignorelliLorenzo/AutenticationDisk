@@ -181,6 +181,16 @@ namespace AutenticationDisk
                 MessageBox.Show("Errore Serie non trovata probabilmente il nome inserito è scorretto");
                 return;
             }
+            int x = 0;
+            while (x < num)
+            {
+                if (z.nome == test[x].nome)
+                {
+                    MessageBox.Show("Serie già inserita");
+                    return;
+                }
+                x++;
+            }
             test[num] = z;
             num++;
 

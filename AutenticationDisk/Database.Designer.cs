@@ -268,7 +268,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "scheda_database";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Database";
             this.Load += new System.EventHandler(this.Database_Load);
             this.ResumeLayout(false);
