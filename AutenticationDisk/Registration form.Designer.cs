@@ -113,6 +113,7 @@
             this.BoxPassR.Location = new System.Drawing.Point(10, 136);
             this.BoxPassR.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.BoxPassR.Name = "BoxPassR";
+            this.BoxPassR.PasswordChar = '*';
             this.BoxPassR.Size = new System.Drawing.Size(270, 29);
             this.BoxPassR.TabIndex = 7;
             // 
@@ -122,6 +123,7 @@
             this.BoxPass2R.Location = new System.Drawing.Point(10, 206);
             this.BoxPass2R.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.BoxPass2R.Name = "BoxPass2R";
+            this.BoxPass2R.PasswordChar = '*';
             this.BoxPass2R.Size = new System.Drawing.Size(270, 29);
             this.BoxPass2R.TabIndex = 8;
             // 
@@ -157,7 +159,7 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.pictureBox2.Location = new System.Drawing.Point(-8, 0);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(53, 24);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -168,7 +170,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(300, 24);
             this.pictureBox1.TabIndex = 13;
