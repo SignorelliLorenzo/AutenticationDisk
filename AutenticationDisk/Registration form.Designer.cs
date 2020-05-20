@@ -86,6 +86,7 @@
             // 
             this.BoxPassR.Location = new System.Drawing.Point(15, 74);
             this.BoxPassR.Name = "BoxPassR";
+            this.BoxPassR.PasswordChar = '*';
             this.BoxPassR.Size = new System.Drawing.Size(241, 20);
             this.BoxPassR.TabIndex = 7;
             // 
@@ -93,6 +94,7 @@
             // 
             this.BoxPass2R.Location = new System.Drawing.Point(15, 113);
             this.BoxPass2R.Name = "BoxPass2R";
+            this.BoxPass2R.PasswordChar = '*';
             this.BoxPass2R.Size = new System.Drawing.Size(241, 20);
             this.BoxPass2R.TabIndex = 8;
             // 

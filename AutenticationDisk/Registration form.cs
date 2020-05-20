@@ -26,6 +26,37 @@ namespace AutenticationDisk
             string pass1 = BoxPassR.Text;
             string pass2 = BoxPass2R.Text;
             string supersecretpass = "X6!GZ9Pz}N9&8oECRZCYqrM,XXM2+ZwcYgkHIW";
+            if (pass1.Length < 8)
+            {
+                MessageBox.Show("La password deve essere almeno lunga 8 caratteri");
+                return;
+            }
+            int x = 0;
+            char[] temp = new char[pass1.Length];
+            int ct = 0;
+            temp = pass1.ToCharArray();
+            while (x < pass1.Length)
+            {
+
+                if (temp[x].GetHashCode() <= 48 && temp[x].GetHashCode() >= 57 && ct > 0)
+                {
+                    ct++;
+                }
+                if (temp[x].GetHashCode() <= 90 && temp[x].GetHashCode() >= 65 && ct > 0)
+                {
+                    ct++;
+                }
+                if (temp[x].GetHashCode() <= 122 && temp[x].GetHashCode() >= 97 && ct > 0)
+                {
+                    ct++;
+                }
+                x++;
+            }
+            if (ct != 3)
+            {
+                MessageBox.Show("La password deve contenere un carattere maiuscolo uno minuscolo e un numero");
+                return;
+            }
             try
             {
                 var conn = new MySqlConnection($"Server=85.10.205.173;port=3306;Uid=ad_pass;Pwd={supersecretpass};Database=passfolder1;Connection Timeout=30;old guids=true;");
@@ -35,19 +66,7 @@ namespace AutenticationDisk
 
                 string tempo1 = "C:\\App\\" + user1 + ".txt";
                 bool alreadyregistered = false;
-                if (pass1.Length < 8)
-                {
-                    MessageBox.Show("La password deve essere almeno lunga 8 caratteri");
-                    return;
-                }
-                int x = 0;
-                char[] temp = new char[pass1.Length];
-                temp=
-                while(x<pass1.Length)
-                {
-
-                    x++;
-                }
+                
                 if (pass1 == pass2)
                 {
                     var cmd = new MySqlCommand("select * from Tabelle", conn);
