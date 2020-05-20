@@ -33,5 +33,17 @@ namespace AutenticationDisk
         {
 
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            scheda_database dbopen = new scheda_database();
+            dbopen.Show();
+        }
     }
 }

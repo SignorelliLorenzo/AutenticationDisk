@@ -21,7 +21,7 @@ namespace AutenticationDisk
         }
 
         public static serie[] test = new serie[100];
-        int num = default(int);
+        public static int num = 0;
         public static int variable = default(int);
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -41,6 +41,12 @@ namespace AutenticationDisk
         private void Database_Load(object sender, EventArgs e)
         {
 
+            string path = "User/" + Form1.currentuser + "/serie.txt";
+
+            if (File.Exists(path))
+            {
+                funzioni.Carica(test, ref num, path);
+            }
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -126,8 +132,8 @@ namespace AutenticationDisk
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string path = Form1.currentuser + @"\" + DateTime.Now.ToString();
-        
+            string path = "User/" + Form1.currentuser + "/serie.txt";
+
 
 
             funz.funzioni.salva(test, num, path);
