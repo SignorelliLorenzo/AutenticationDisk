@@ -38,15 +38,15 @@ namespace AutenticationDisk
             while (x < pass1.Length)
             {
 
-                if (temp[x].GetHashCode() <= 48 && temp[x].GetHashCode() >= 57 && ct > 0)
+                if ((int)Convert.ToChar(temp[x]) >= 49 && (int)Convert.ToChar(temp[x]) <= 57 && ct <= 0)
                 {
                     ct++;
                 }
-                if (temp[x].GetHashCode() <= 90 && temp[x].GetHashCode() >= 65 && ct > 0)
+                if ((int)Convert.ToChar(temp[x]) <= 90 && (int)Convert.ToChar(temp[x]) >= 65 && ct <= 1)
                 {
                     ct++;
                 }
-                if (temp[x].GetHashCode() <= 122 && temp[x].GetHashCode() >= 97 && ct > 0)
+                if ((int)Convert.ToChar(temp[x]) <= 122 && (int)Convert.ToChar(temp[x]) >= 97 && ct <= 2)
                 {
                     ct++;
                 }

@@ -21,7 +21,11 @@ namespace AutenticationDisk
         }
 
         public static serie[] test = new serie[100];
+        
+            
         public static int num = 0;
+        public static bool caricato = false;
+    
         public static int variable = default(int);
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -40,13 +44,21 @@ namespace AutenticationDisk
 
         private void Database_Load(object sender, EventArgs e)
         {
+            
+            if (caricato==true)
+            {
+                button4_Click(sender, e);
+                return;
 
+            }
+            caricato = true;
             string path = "User/" + Form1.currentuser + "/serie.txt";
 
             if (File.Exists(path))
             {
                 funzioni.Carica(test, ref num, path);
             }
+            button4_Click(sender, e);
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -287,7 +299,9 @@ namespace AutenticationDisk
                 MessageBox.Show("Limite raggiunto");
                 return;
             }
+           
             test[variable].epvisti = test[variable].epvisti + 1;
+            button4_Click(sender, e);
         }
 
         private void decrease_Click(object sender, EventArgs e)
@@ -298,6 +312,7 @@ namespace AutenticationDisk
                 return;
             }
             test[variable].epvisti = test[variable].epvisti - 1;
+            button4_Click(sender, e);
         }
     }
 }
