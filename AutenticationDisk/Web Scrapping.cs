@@ -403,8 +403,7 @@ namespace Web_Scrapping
             HtmlWeb web = new HtmlWeb();
             HtmlDocument doc;
             doc = web.Load(indirizzo);
-            Console.WriteLine(indirizzo);
-            Console.ReadKey();
+ 
             try
             {
                 var list = doc.DocumentNode.SelectSingleNode("//p[@class='corpo']").InnerText;
@@ -421,8 +420,7 @@ namespace Web_Scrapping
                 indirizzo = indirizzo.ToLower();
                
                 indirizzo = $"https://www.mymovies.it/netflix/{indirizzo}/";
-                Console.WriteLine(indirizzo);
-                Console.ReadKey();
+                
                 doc = web.Load(indirizzo);
                 var list = doc.DocumentNode.SelectSingleNode("//p[@class='corpo']").InnerText;
                 trama = list;

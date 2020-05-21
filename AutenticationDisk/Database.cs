@@ -209,16 +209,16 @@ namespace AutenticationDisk
                 MessageBox.Show("Errore Serie non trovata probabilmente il nome inserito è scorretto");
                 return;
             }
-            try
-            {
+           
+            
                 z.trama = Reserch.Trama(ns);
                 
-            }
-            catch
-            {
-                MessageBox.Show("Errore Serie non trovata probabilmente il nome inserito è scorretto");
-                return;
-            }
+         
+            
+            
+                //MessageBox.Show("Errore Serie non trovata probabilmente il nome inserito è scorretto");
+                //return;
+            
             int x = 0;
             while (x < num)
             {
