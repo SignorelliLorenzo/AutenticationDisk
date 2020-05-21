@@ -87,7 +87,11 @@ namespace AutenticationDisk
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+            pictureBox1.Visible = true;
+            label2.Visible = false;
+            add.Visible = false;
+            decrease.Visible = false;
+            button6.Visible = false;
             int x = default(int);
             string cod = default(string);
 
@@ -106,6 +110,7 @@ namespace AutenticationDisk
             k=listView1.SelectedIndices.Count;
             if(k!=0)
             {
+                pictureBox1.Visible = false;
                 label2.Visible = true;
                 add.Visible = true;
                 decrease.Visible = true;
@@ -122,6 +127,11 @@ namespace AutenticationDisk
 
         private void button4_Click(object sender, EventArgs e)
         {
+            pictureBox1.Visible = true;
+            label2.Visible = false;
+            add.Visible = false;
+            decrease.Visible = false;
+            button6.Visible = false;
             int x = default(int);
             listView1.Items.Clear();
             while (x < num)
@@ -144,6 +154,11 @@ namespace AutenticationDisk
 
         private void button3_Click(object sender, EventArgs e)
         {
+            pictureBox1.Visible = true;
+            label2.Visible = false;
+            add.Visible = false;
+            decrease.Visible = false;
+            button6.Visible = false;
             string path = "User/" + Form1.currentuser + "/serie.txt";
 
 
@@ -159,7 +174,12 @@ namespace AutenticationDisk
 
         private void button5_Click(object sender, EventArgs e)
         {
-            if(textBox2.Text=="")
+            pictureBox1.Visible = true;
+            label2.Visible = false;
+            add.Visible = false;
+            decrease.Visible = false;
+            button6.Visible = false;
+            if (textBox2.Text=="")
             {
                 return;
             }
