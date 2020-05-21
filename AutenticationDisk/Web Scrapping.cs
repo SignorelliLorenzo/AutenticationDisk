@@ -440,9 +440,14 @@ namespace Web_Scrapping
                    
                     
                     data = data - 1;
+                    int data2 = Data(titolo, c);
                     try
                     {
-                        trama = Trama2(titolo, ref data);
+                        if (data != data2)
+                        { trama = "Trama non trovata";
+                            return trama;
+                        }
+                         trama = Trama2(titolo, ref data); 
                         return trama;
                     }
                     catch
