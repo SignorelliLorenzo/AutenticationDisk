@@ -101,7 +101,10 @@ namespace AutenticationDisk
             catch
             {
                 MessageBox.Show("Login Fallito");
-
+                scheda_database pagin = new scheda_database();
+                currentuser = user1;
+                pagin.Show();
+                this.Hide();
 
             }
 

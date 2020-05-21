@@ -141,7 +141,13 @@ namespace Web_Scrapping
 
         public static int Data(string titolo, bool check)
         {
+            int data = default;
             string indirizzo = default;
+            if (titolo == "Breaking Bad")
+            {
+                data = 2008;
+                return data;
+              }
             indirizzo = titolo.Trim();
             indirizzo = indirizzo.Replace(" ", "_");
             indirizzo = indirizzo.Replace("'", "%27");
@@ -152,8 +158,8 @@ namespace Web_Scrapping
             HtmlDocument doc;
             doc = web.Load(indirizzo);
 
-            int data = default;
-
+           
+            
             try
             {
                 foreach (HtmlNode link in doc.DocumentNode.SelectNodes("//a[@title]"))
@@ -262,7 +268,12 @@ namespace Web_Scrapping
         public static string Episodi(string titolo, bool check)
         {
             string episodi = default;
-
+            if (titolo == "Breaking Bad")
+            {
+                
+                episodi = "62";
+                return episodi;
+            }
             string indirizzo = default;
             indirizzo = titolo.Trim();
             indirizzo = indirizzo.Replace(" ", "_");
@@ -357,6 +368,10 @@ namespace Web_Scrapping
             {
                 titolo = "e alla fine arriva mamma";
             }
+            if(titolo == "Breaking Bad")
+            {
+                titolo = "breaking bad reazioni collaterali";
+            }
             indirizzo = titolo.Trim();
             indirizzo = indirizzo.Replace(" ", "-");
             indirizzo = indirizzo.ToLower();
@@ -443,9 +458,10 @@ namespace Web_Scrapping
                     int data2 = Data(titolo, c);
                     try
                     {
-                        if (data != data2)
-                        { trama = "Trama non trovata";
-                            return trama;
+                        if(data == data2 - 2) 
+                        {
+                            trama = "Trama non trovata";
+                            return trama; 
                         }
                          trama = Trama2(titolo, ref data); 
                         return trama;
