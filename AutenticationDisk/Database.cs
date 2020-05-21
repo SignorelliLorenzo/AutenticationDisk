@@ -87,7 +87,7 @@ namespace AutenticationDisk
 
         private void button2_Click(object sender, EventArgs e)
         {
-            textBox1.Visible = true;
+            
             int x = default(int);
             string cod = default(string);
 
@@ -97,7 +97,7 @@ namespace AutenticationDisk
             {
                 MessageBox.Show("Hai eliminato " + x + " serie");
             }
-            textBox1.Visible = false;
+            
         }
 
         private void listView1_SelectedIndexChanged_1(object sender, EventArgs e)
