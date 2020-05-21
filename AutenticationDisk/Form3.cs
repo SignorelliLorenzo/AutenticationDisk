@@ -19,7 +19,14 @@ namespace AutenticationDisk
 
         private void INFO_Load(object sender, EventArgs e)
         {
-            pictureBox1.Load("http:"+scheda_database.test[scheda_database.variable].immage);
+            try
+                {
+                pictureBox1.Load("http:" + scheda_database.test[scheda_database.variable].immage);
+            }
+            catch
+            {
+
+            }
             label1.Text = scheda_database.test[scheda_database.variable].trama;
         }
 

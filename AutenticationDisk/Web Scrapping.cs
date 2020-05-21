@@ -75,6 +75,7 @@ namespace Web_Scrapping
                 if (indirizzo == "https://it.wikipedia.org/wiki/Stranger_Things")
                 {
                     immagine = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Stranger_Things_logo.png/390px-Stranger_Things_logo.png";
+                    return immagine;
                 }
                 if (immagine == "//upload.wikimedia.org/wikipedia/commons/thumb/4/46/Disambigua_compass.svg/35px-Disambigua_compass.svg.png")
                 {
