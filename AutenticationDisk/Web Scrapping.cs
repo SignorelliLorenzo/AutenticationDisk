@@ -351,12 +351,16 @@ namespace Web_Scrapping
 
         public static string Trama(string titolo)
         {
-
+            bool c = false;
             string indirizzo = default;
+            if(titolo == "How I Met Your Mother")
+            {
+                titolo = "e alla fine arriva mamma";
+            }
             indirizzo = titolo.Trim();
             indirizzo = indirizzo.Replace(" ", "-");
             indirizzo = indirizzo.ToLower();
-
+            int  data = Data(titolo,c);
             indirizzo = $"https://www.nientepopcorn.it/serie-tv/{indirizzo}";
             string trama = default;
             HtmlWeb web = new HtmlWeb();
@@ -379,23 +383,23 @@ namespace Web_Scrapping
              }
             catch
             {
-
-               trama = Trama2(titolo);
+                    
+               trama = Trama2(titolo,ref data);
                 return trama;
             }
 
 
         }
          
-        public static string Trama2(string titolo)
+        public static string Trama2(string titolo, ref int data)
         {
-        
+            int x = default;
             bool c = false;
             string indirizzo = default;
             indirizzo = titolo.Trim();
             indirizzo = indirizzo.Replace(" ", "");
             indirizzo = indirizzo.ToLower();
-            int data = Data(titolo, c);
+            
             indirizzo = $"https://www.mymovies.it/film/{data}/{indirizzo}/";
             
            
@@ -420,12 +424,33 @@ namespace Web_Scrapping
                 indirizzo = indirizzo.ToLower();
                
                 indirizzo = $"https://www.mymovies.it/netflix/{indirizzo}/";
-                
-                doc = web.Load(indirizzo);
-                var list = doc.DocumentNode.SelectSingleNode("//p[@class='corpo']").InnerText;
-                trama = list;
-                trama = trama.Trim();
-                trama = trama.ToLower();
+                try
+                {
+
+
+                    doc = web.Load(indirizzo);
+                    var list = doc.DocumentNode.SelectSingleNode("//p[@class='corpo']").InnerText;
+                    trama = list;
+                    trama = trama.Trim();
+                    trama = trama.ToLower();
+                }
+                catch
+                {
+                    
+                   
+                    
+                    data = data - 1;
+                    try
+                    {
+                        trama = Trama2(titolo, ref data);
+                        return trama;
+                    }
+                    catch
+                    {
+                        trama = "Trama non trovata";
+                        return trama;
+                    }
+                }
 
             }
 
