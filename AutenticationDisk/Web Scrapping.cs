@@ -362,7 +362,7 @@ namespace Web_Scrapping
             HtmlWeb web = new HtmlWeb();
             HtmlDocument doc;
             doc = web.Load(indirizzo);
-
+            try{
             var list = doc.DocumentNode.SelectSingleNode("//p[@class='trama']").InnerText;
 
 
@@ -376,11 +376,68 @@ namespace Web_Scrapping
 
             trama = trama.Remove(lung - 24 - lung2, 24 + lung2);
             return trama;
+             }
+            catch
+            {
 
+               trama = Trama2(titolo);
+                return trama;
+            }
 
 
         }
+         
+        public static string Trama2(string titolo)
+        {
+        
+            bool c = false;
+            string indirizzo = default;
+            indirizzo = titolo.Trim();
+            indirizzo = indirizzo.Replace(" ", "");
+            indirizzo = indirizzo.ToLower();
+            int data = Data(titolo, c);
+            indirizzo = $"https://www.mymovies.it/film/{data}/{indirizzo}/";
+            
+           
+            string trama = default;
+            HtmlWeb web = new HtmlWeb();
+            HtmlDocument doc;
+            doc = web.Load(indirizzo);
+            Console.WriteLine(indirizzo);
+            Console.ReadKey();
+            try
+            {
+                var list = doc.DocumentNode.SelectSingleNode("//p[@class='corpo']").InnerText;
+                trama = list;
+                trama = trama.Trim();
+                trama = trama.ToLower();
+                
+            }
+            catch
+            {
+                
+                indirizzo = titolo.Trim();
+                indirizzo = indirizzo.Replace(" ", "");
+                indirizzo = indirizzo.ToLower();
+               
+                indirizzo = $"https://www.mymovies.it/netflix/{indirizzo}/";
+                Console.WriteLine(indirizzo);
+                Console.ReadKey();
+                doc = web.Load(indirizzo);
+                var list = doc.DocumentNode.SelectSingleNode("//p[@class='corpo']").InnerText;
+                trama = list;
+                trama = trama.Trim();
+                trama = trama.ToLower();
 
+            }
+
+
+          
+         
+            return trama;
+        
+        
+        }
 
 
     }
